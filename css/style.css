@@ -39,34 +39,49 @@ h1 {
 
 }
 
-.color:active {
-    border-color: white;
-
-}
-
-#r {
+#r{
     background-color: red;
     background-size: contain;
     border-top-right-radius: 50%;
 }
 
-#y {
+#y{
     background-color: yellow;
     background-size: contain;
     border-top-left-radius: 50%;
 }
 
-#g {
+#g{
     background-color: green;
     background-size: contain;
     border-bottom-left-radius: 50%;
 }
 
-#b {
+#b{
     background-color: blue;
     background-size: contain;
     border-bottom-right-radius: 50%;
 }
+
+#b:active{
+    border-color: white;
+}
+
+#r:active{
+    border-color: white;
+}
+
+#y:active{
+    border-color: white;
+}
+
+#g:active{
+    border-color: white;
+}
+
+
+
+
 
 button {
     margin-top: 5vmin;
@@ -81,6 +96,6 @@ button {
     pointer-events: none;
 }
 
-#restart{
+#restart {
     visibility: hidden;
 }
