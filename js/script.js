@@ -1,11 +1,17 @@
 /*----- constants -----*/
 const choices = ['y', 'r', 'g', 'b'];
+const textDisplay = {
+    difficulty: [`Let's make things more interesting`, `Don't get cocky now`, `FASTER!`],
+    cheer: [`Awesome!!`, `Nice!`, `Sweet!`, `Respect!`, `SLAAAAAAAY`]
+}
 
 /*----- app's state (variables) -----*/
 let cSequence = [];
 let pSequence = [];
 let round = 0;
 let index = 0;
+let increaseDifficulty = false;
+let timeoutTime = 1000;
 
 /*----- cached element references -----*/
 const btn = document.getElementById('play');
@@ -70,16 +76,39 @@ function init() {
     pSequence = [];
     round = 0;
     index = 0;
+    timeoutTime = 1000;
+    increaseDifficulty = false;
     nextRound();
 }
 function nextRound() {
-    round += 1;
-    roundDisplay.innerText = `Round ${round}`;
     const nextSequence = choices[Math.floor(Math.random() * choices.length)];
     cSequence.push(nextSequence);
-    playSequence(cSequence);
+    if (round % 3 === 0 && round !== 0) {
+        infoDisplay.innerText = textDisplay.difficulty[Math.floor(Math.random() * 3)];
+        setTimeout(() => {
+            displayRound();
+            timeoutTime *= .75;
+            playSequence(cSequence);
+        }, 1000)
+
+    }
+    else if (round > 1) {
+        infoDisplay.innerText = textDisplay.cheer[Math.floor(Math.random() * 3)];
+        setTimeout(() => {
+            displayRound();
+            playSequence(cSequence);
+        }, 1000)
+    }
+    else {
+        displayRound();
+        playSequence(cSequence);
+    }
+
 }
 function playSequence(sequence) {
+
+    console.log(sequence);
+
     infoDisplay.innerText = `Wait for computer to play`;
     while (index !== sequence.length) {
         arrOfColors.forEach((color) => {
@@ -87,10 +116,10 @@ function playSequence(sequence) {
                 let colorIdx = arrOfColors.indexOf(color);
                 setTimeout(() => {
                     arrOfColors[colorIdx].style.borderColor = 'white';
-                }, (index + 1) * 1000);
+                }, (index + 1) * timeoutTime);
                 setTimeout(() => {
                     arrOfColors[colorIdx].style.borderColor = 'black';
-                }, (index + 1.5) * 1000);
+                }, (index + 1.50) * timeoutTime);
                 clearTimeout();
             }
         });
@@ -104,6 +133,10 @@ function playerTurn() {
     setTimeout(() => {
         board.classList.toggle('unclickable');
         infoDisplay.innerText = `Your Turn`;
-    }, (round + 1) * 1000);
+    }, (round + 1) * timeoutTime);
 }
 
+function displayRound() {
+    round++;
+    roundDisplay.innerText = `Round ${round}`;
+}
