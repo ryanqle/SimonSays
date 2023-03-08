@@ -17,7 +17,7 @@ h1,h2 {
     margin-bottom: 5vmin;
     margin-top: 5vmin;
     color: black;
-    font-size: 10vmin;
+    font-size: 5vw;
 }
 
 #play-area {
@@ -38,29 +38,36 @@ h1,h2 {
 
 .color {
     margin: 1vmin;
-    border: 1vmin solid black;
-
+    border: 2vmin solid black;
 }
  
 #r {
+    margin-left: .5vmin;
+    margin-bottom: .5vmin;
     background-color: red;
     background-size: contain;
     border-top-right-radius: 50%;
 }
 
 #y {
+    margin-right: .5vmin;
+    margin-bottom: .5vmin;
     background-color: yellow;
     background-size: contain;
     border-top-left-radius: 50%;
 }
 
 #g {
+    margin-right: .5vmin;
+    margin-top: .5vmin;
     background-color: green;
     background-size: contain;
     border-bottom-left-radius: 50%;
 }
 
 #b {
+    margin-left: .5vmin;
+    margin-top: .5vmin;
     background-color: blue;
     background-size: contain;
     border-bottom-right-radius: 50%;

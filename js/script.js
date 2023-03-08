@@ -221,13 +221,13 @@ function introStartSequence() {
         arrOfColors[1].style.borderColor = 'white';
         arrOfColors[2].style.borderColor = 'white';
         arrOfColors[3].style.borderColor = 'white';
-    }, 4500);
+    }, 4400);
     setTimeout(() => {
         arrOfColors[0].style.borderColor = 'black';
         arrOfColors[1].style.borderColor = 'black';
         arrOfColors[2].style.borderColor = 'black';
         arrOfColors[3].style.borderColor = 'black';
-        }, 4750);
+        }, 5000);
     
    
 }
