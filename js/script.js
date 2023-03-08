@@ -1,6 +1,10 @@
 /*----- constants -----*/
 const choices = ['y', 'r', 'g', 'b'];
 const audio = [new Audio('sound/a6.mp3'), new Audio('sound/b6.mp3'), new Audio('sound/c6.mp3'), new Audio('sound/e6.mp3')];
+const introMusic = new Audio('sound/intro.mp3');
+introMusic.volume = .2;
+const gameOverSound = new Audio('sound/gameover.mp3');
+gameOverSound.volume = .2;
 const textDisplay = {
     difficulty: [`Let's make things more interesting`, `Don't get cocky now`, `FASTER!`],
     cheer: [`Awesome!!`, `Nice!`, `Sweet!`, `Respect!`, `SLAAAAAAAY`]
@@ -29,6 +33,9 @@ playArea.addEventListener('click', handleClick);
 /*----- functions -----*/
 function handleClick(evt) {
     let playerAction = evt.target;
+    // HANDLE GUARD
+    // if click was not on a button the the color div/button
+    // do nothing
     if (playerAction.tagName !== 'BUTTON' && playerAction.className !== 'color') {
         return;
     }
@@ -36,21 +43,40 @@ function handleClick(evt) {
         handleButton(playerAction);
     }
     else {
-        handlePlayerAction(playerAction.id);
+        handleColorSelection(playerAction.id);
     }
 }
+// HANDLE BUTTON PRESS
+// On first click
+// Will hide the button on press and reuse the button and update text to 'PLAY AGAIN'
+// Play intro sequence by calling introStartSequence function
+// Subsequent clicks will result in normal play again
 function handleButton(btn) {
-    btn.style.visibility = 'hidden';
-    if (round === 0) {
+    if(btn.innerText === 'START'){
+        btn.style.visibility = 'hidden';
         btn.innerText = 'PLAY AGAIN';
+        introStartSequence();
+        setTimeout(() => {
+            init();
+        }, 5500);
+        return;
     }
-    init();
+    else{
+        btn.style.visibility = 'hidden';
+        init();
+    }
 }
-function handlePlayerAction(colorClicked) {
+// HANDLE COLOR SELECTION
+// Will add the new color of the player's choice and check
+// If incorrect color selection, handle game over
+// If all sequence is correct, call next round
+// On click display animation and sound
+function handleColorSelection(colorClicked) {
     pSequence.push(colorClicked)
     let index = pSequence.length - 1;
     if (pSequence[index] !== cSequence[index]) {
         infoDisplay.innerText = 'GAME OVER';
+        gameOverSound.play();
         btn.style.visibility = 'visible';
         board.classList.toggle('unclickable');
         return;
@@ -79,6 +105,8 @@ function handlePlayerAction(colorClicked) {
         }
     });
 }
+// INITIALIZE GAME
+// Set variables to default values
 function init() {
     cSequence = [];
     pSequence = [];
@@ -89,6 +117,10 @@ function init() {
     nextRound();
 
 }
+// NEXT ROUND
+// handle adding new step to computer sequence
+// check difficulty
+// call computer sequence animation
 function nextRound() {
     const nextSequence = choices[Math.floor(Math.random() * choices.length)];
     cSequence.push(nextSequence);
@@ -114,6 +146,10 @@ function nextRound() {
     }
 
 }
+// PLAY SEQUENCE
+// animation and audio for color sequence
+// while loop until sequence length is met
+// call playerTurn function once done
 function playSequence(sequence) {
     infoDisplay.innerText = `Wait for computer to play`;
     while (index !== sequence.length) {
@@ -137,19 +173,25 @@ function playSequence(sequence) {
     index = 0;
     playerTurn();
 }
-
+// PLAYER TURN
+// Display info of player's turn
+// timeout to after computer sequence is complete
+// allow player to be able to click on the board
 function playerTurn() {
     setTimeout(() => {
         board.classList.toggle('unclickable');
         infoDisplay.innerText = `Your Turn`;
     }, (round + 1) * timeoutTime);
 }
-
+// DISPLAY ROUND
+// update current round and display
 function displayRound() {
     round++;
     roundDisplay.innerText = `Round ${round}`;
 }
-
+// CHECK DIFFICULTY
+// when animation speed reaches less than .3s stop increasing difficulty
+// otherwise adjust the speed after every 3 rounds
 function checkDifficulty() {
     if (timeoutTime < 300) {
         increaseDifficulty = false;
@@ -159,4 +201,33 @@ function checkDifficulty() {
         increaseDifficulty = true;
         timeoutTime *= .5;
     }
+}
+// INTRO SEQUENCE
+// plays intro music and add 
+function introStartSequence() {
+    introMusic.play();
+    arrOfColors.forEach((color,idx) => {
+        setTimeout(() => {
+            color.style.borderColor = 'white';
+        }, idx * 1000)
+        setTimeout(() => {
+                color.style.borderColor = 'black';
+            }, (idx + .75) * 1000);
+        }
+    );
+
+    setTimeout(() => {
+        arrOfColors[0].style.borderColor = 'white';
+        arrOfColors[1].style.borderColor = 'white';
+        arrOfColors[2].style.borderColor = 'white';
+        arrOfColors[3].style.borderColor = 'white';
+    }, 4500);
+    setTimeout(() => {
+        arrOfColors[0].style.borderColor = 'black';
+        arrOfColors[1].style.borderColor = 'black';
+        arrOfColors[2].style.borderColor = 'black';
+        arrOfColors[3].style.borderColor = 'black';
+        }, 4750);
+    
+   
 }
