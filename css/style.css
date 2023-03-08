@@ -10,14 +10,19 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: radial-gradient(gray,black);
 }
 
-h1,
+h1{
+    margin-block-end: 2vh;
+    color: white;
+    font-size: 5vw;
+}
+
 h2 {
-    margin-top: 0;
-    margin-bottom: 5vmin;
-    margin-top: 5vmin;
-    color: black;
+    margin-block-start: 2vh;
+    margin-block-end: 2vh;
+    color: white;
     font-size: 5vw;
 }
 
@@ -75,7 +80,7 @@ h2 {
 }
 
 button {
-    margin: auto;
+    margin-block-start: 2vh;
     padding: auto;
     background-color: black;
     color: white;
