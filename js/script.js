@@ -52,7 +52,7 @@ function handleClick(evt) {
 // Play intro sequence by calling introStartSequence function
 // Subsequent clicks will result in normal play again
 function handleButton(btn) {
-    if(btn.innerText === 'START'){
+    if (btn.innerText === 'START') {
         btn.style.visibility = 'hidden';
         btn.innerText = 'PLAY AGAIN';
         introStartSequence();
@@ -61,7 +61,7 @@ function handleButton(btn) {
         }, 5500);
         return;
     }
-    else{
+    else {
         btn.style.visibility = 'hidden';
         init();
     }
@@ -206,28 +206,28 @@ function checkDifficulty() {
 // plays intro music and add 
 function introStartSequence() {
     introMusic.play();
-    arrOfColors.forEach((color,idx) => {
+    arrOfColors.forEach((color, idx) => {
         setTimeout(() => {
             color.style.borderColor = 'white';
         }, idx * 1000)
         setTimeout(() => {
-                color.style.borderColor = 'black';
-            }, (idx + .75) * 1000);
-        }
+            color.style.borderColor = 'black';
+        }, (idx + .75) * 1000);
+    }
     );
 
     setTimeout(() => {
         arrOfColors[0].style.borderColor = 'white';
         arrOfColors[1].style.borderColor = 'white';
-        arrOfColors[2].style.borderColor = 'white';
         arrOfColors[3].style.borderColor = 'white';
+        arrOfColors[2].style.borderColor = 'white';
     }, 4400);
     setTimeout(() => {
         arrOfColors[0].style.borderColor = 'black';
         arrOfColors[1].style.borderColor = 'black';
-        arrOfColors[2].style.borderColor = 'black';
         arrOfColors[3].style.borderColor = 'black';
-        }, 5000);
-    
-   
+        arrOfColors[2].style.borderColor = 'black';
+    }, 5000);
+
+
 }
