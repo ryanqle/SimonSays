@@ -1,5 +1,6 @@
 /*----- constants -----*/
 const choices = ['y', 'r', 'g', 'b'];
+const audio = [new Audio('sound/a6.mp3'), new Audio('sound/b6.mp3'), new Audio('sound/c6.mp3'), new Audio('sound/e6.mp3')];
 const textDisplay = {
     difficulty: [`Let's make things more interesting`, `Don't get cocky now`, `FASTER!`],
     cheer: [`Awesome!!`, `Nice!`, `Sweet!`, `Respect!`, `SLAAAAAAAY`]
@@ -28,12 +29,13 @@ playArea.addEventListener('click', handleClick);
 /*----- functions -----*/
 function handleClick(evt) {
     let playerAction = evt.target;
-    if (playerAction.tagName !== 'BUTTON' && playerAction.className !== 'board color') {
+    if (playerAction.tagName !== 'BUTTON' && playerAction.className !== 'color') {
         return;
     }
     else if (playerAction.tagName === 'BUTTON') {
         handleButton(playerAction);
-    } else {
+    }
+    else {
         handlePlayerAction(playerAction.id);
     }
 }
@@ -64,10 +66,16 @@ function handlePlayerAction(colorClicked) {
         if (colorClicked === color.id) {
             let colorIdx = arrOfColors.indexOf(color);
             arrOfColors[colorIdx].style.borderColor = 'white';
+            audio[colorIdx].play();
             indexOfLastColor = colorIdx;
+            board.classList.toggle('unclickable');
             setTimeout(() => {
                 arrOfColors[colorIdx].style.borderColor = 'black';
-            }, 200);
+                audio[colorIdx].pause();
+                audio[colorIdx].currentTime = 0;
+                board.classList.toggle('unclickable');
+            }, 300);
+
         }
     });
 }
@@ -79,21 +87,22 @@ function init() {
     timeoutTime = 1000;
     increaseDifficulty = false;
     nextRound();
+
 }
 function nextRound() {
     const nextSequence = choices[Math.floor(Math.random() * choices.length)];
     cSequence.push(nextSequence);
-    if (round % 3 === 0 && round !== 0) {
-        infoDisplay.innerText = textDisplay.difficulty[Math.floor(Math.random() * 3)];
+    checkDifficulty();
+    if (increaseDifficulty === true) {
+        increaseDifficulty = false;
+        infoDisplay.innerHTML = `<span style= 'color: red'>${textDisplay.difficulty[Math.floor(Math.random() * 3)]}</span>`;
         setTimeout(() => {
             displayRound();
-            timeoutTime *= .75;
             playSequence(cSequence);
         }, 1000)
-
     }
     else if (round > 1) {
-        infoDisplay.innerText = textDisplay.cheer[Math.floor(Math.random() * 3)];
+        infoDisplay.innerHTML = `<span style= 'color: green'>${textDisplay.cheer[Math.floor(Math.random() * 5)]}</span>`;
         setTimeout(() => {
             displayRound();
             playSequence(cSequence);
@@ -106,9 +115,6 @@ function nextRound() {
 
 }
 function playSequence(sequence) {
-
-    console.log(sequence);
-
     infoDisplay.innerText = `Wait for computer to play`;
     while (index !== sequence.length) {
         arrOfColors.forEach((color) => {
@@ -116,9 +122,12 @@ function playSequence(sequence) {
                 let colorIdx = arrOfColors.indexOf(color);
                 setTimeout(() => {
                     arrOfColors[colorIdx].style.borderColor = 'white';
+                    audio[colorIdx].play();
                 }, (index + 1) * timeoutTime);
                 setTimeout(() => {
                     arrOfColors[colorIdx].style.borderColor = 'black';
+                    audio[colorIdx].pause();
+                    audio[colorIdx].currentTime = 0;
                 }, (index + 1.50) * timeoutTime);
                 clearTimeout();
             }
@@ -139,4 +148,15 @@ function playerTurn() {
 function displayRound() {
     round++;
     roundDisplay.innerText = `Round ${round}`;
+}
+
+function checkDifficulty() {
+    if (timeoutTime < 300) {
+        increaseDifficulty = false;
+        return;
+    }
+    else if (round % 3 === 0 && round != 0) {
+        increaseDifficulty = true;
+        timeoutTime *= .5;
+    }
 }

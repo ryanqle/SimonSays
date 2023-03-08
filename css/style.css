@@ -12,10 +12,12 @@ body {
     align-items: center;
 }
 
-h1 {
+h1,h2 {
     margin-top: 0;
     margin-bottom: 5vmin;
-    color: grey;
+    margin-top: 5vmin;
+    color: black;
+    font-size: 10vmin;
 }
 
 #play-area {
@@ -23,12 +25,13 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 5vmin;
 }
 
 #board {
     display: grid;
-    grid-template-columns: repeat(2, 20vmin);
-    grid-template-rows: repeat(2, 20vmin);
+    grid-template-columns: repeat(2, 25vmin);
+    grid-template-rows: repeat(2, 25vmin);
     background-color: lightgrey;
     border-radius: 25%;
 }
@@ -38,12 +41,7 @@ h1 {
     border: 1vmin solid black;
 
 }
-
-.color:active {
-    border-color: white;
-
-}
-
+ 
 #r {
     background-color: red;
     background-size: contain;
@@ -66,12 +64,12 @@ h1 {
     background-color: blue;
     background-size: contain;
     border-bottom-right-radius: 50%;
-}
+} 
 
 button {
-    margin-top: 5vmin;
-    padding: 1.5vmin;
-    background-color: grey;
+    margin: auto;
+    padding: auto;
+    background-color: black;
     color: white;
     border-radius: 2vmin;
     font-size: 4vmin;
@@ -79,8 +77,4 @@ button {
 
 .unclickable {
     pointer-events: none;
-}
-
-#restart {
-    visibility: hidden;
 }
