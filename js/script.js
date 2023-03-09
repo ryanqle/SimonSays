@@ -6,8 +6,8 @@ introMusic.volume = .2;
 const gameOverSound = new Audio('sound/gameover.mp3');
 gameOverSound.volume = .2;
 const textDisplay = {
-    difficulty: [`Let's make things more interesting`, `Don't get cocky now`, `FASTER!`],
-    cheer: [`Awesome!!`, `Nice!`, `Sweet!`, `Respect!`, `SLAAAAAAAY`]
+    difficulty: [`Let's make things MORE interesting!`, `Don't get cocky now!`, `FASTER!`],
+    cheer: [`Awesome!`, `Nice!`, `Sweet!`, `Respect!`, `SLAAAAAAAY!`]
 }
 
 /*----- app's state (variables) -----*/
@@ -39,15 +39,15 @@ muteButton.addEventListener('click', handleMute);
 // HANDLE MUTE
 // set all audio to muted or unmuted
 // update style of button to visually see
-function handleMute(){
-    if(mute === false){
+function handleMute() {
+    if (mute === false) {
         mute = true;
         muteButton.innerText = 'MUTED';
         muteButton.style.color = 'red';
         introMusic.muted = true;
         gameOverSound.muted = true;
         audio.forEach((sound) => {
-            sound.muted=true;
+            sound.muted = true;
         })
     } else {
         mute = false;
@@ -56,7 +56,7 @@ function handleMute(){
         introMusic.muted = false;
         gameOverSound.muted = false;
         audio.forEach((sound) => {
-            sound.muted=false;
+            sound.muted = false;
         })
     }
 }
@@ -132,7 +132,6 @@ function handleColorSelection(colorClicked) {
                 audio[colorIdx].currentTime = 0;
                 board.classList.toggle('unclickable');
             }, 300);
-
         }
     });
 }
@@ -146,7 +145,6 @@ function init() {
     timeoutTime = 1000;
     increaseDifficulty = false;
     nextRound();
-
 }
 // NEXT ROUND
 // handle adding new step to computer sequence
@@ -175,7 +173,6 @@ function nextRound() {
         displayRound();
         playSequence(cSequence);
     }
-
 }
 // PLAY SEQUENCE
 // animation and audio for color sequence
@@ -257,7 +254,6 @@ function introStartSequence() {
         }, (idx + .75) * 1000);
     }
     );
-
     setTimeout(() => {
         arrOfColors[0].style.borderColor = 'white';
         arrOfGlow[0].style.visibility = 'visible';
@@ -278,6 +274,4 @@ function introStartSequence() {
         arrOfColors[2].style.borderColor = 'black';
         arrOfGlow[2].style.visibility = 'hidden';
     }, 5000);
-
-
 }
