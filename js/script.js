@@ -6,7 +6,7 @@ introMusic.volume = .2;
 const gameOverSound = new Audio('sound/gameover.mp3');
 gameOverSound.volume = .2;
 const textDisplay = {
-    difficulty: [`Let's make things MORE interesting!`, `Don't get cocky now!`, `FASTER!`],
+    difficulty: [`Let's make it MORE interesting!`, `Don't get cocky now!`, `FASTER!`],
     cheer: [`Awesome!`, `Nice!`, `Sweet!`, `Respect!`, `SLAAAAAAAY!`]
 }
 
