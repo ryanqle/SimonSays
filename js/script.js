@@ -131,7 +131,7 @@ function handleColorSelection(colorClicked) {
                 audio[colorIdx].pause();
                 audio[colorIdx].currentTime = 0;
                 board.classList.toggle('unclickable');
-            }, 350);
+            }, 250);
         }
     });
 }
@@ -194,7 +194,7 @@ function playSequence(sequence) {
                     arrOfGlow[colorIdx].style.visibility = 'hidden';
                     audio[colorIdx].pause();
                     audio[colorIdx].currentTime = 0;
-                }, (index + 1.50) * timeoutTime);
+                }, (index + 1.75) * timeoutTime);
                 clearTimeout();
             }
         });
