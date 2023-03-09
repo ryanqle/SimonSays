@@ -26,6 +26,8 @@ const colors = document.querySelectorAll('.color');
 const arrOfColors = Array.from(colors);
 const roundDisplay = document.querySelector('h1');
 const infoDisplay = document.querySelector('h2');
+const glow = document.querySelectorAll('.glow');
+const arrOfGlow = Array.from(glow);
 
 /*----- event listeners -----*/
 playArea.addEventListener('click', handleClick);
@@ -92,11 +94,13 @@ function handleColorSelection(colorClicked) {
         if (colorClicked === color.id) {
             let colorIdx = arrOfColors.indexOf(color);
             arrOfColors[colorIdx].style.borderColor = 'white';
+            arrOfGlow[colorIdx].style.visibility = 'visible';
             audio[colorIdx].play();
             indexOfLastColor = colorIdx;
             board.classList.toggle('unclickable');
             setTimeout(() => {
                 arrOfColors[colorIdx].style.borderColor = 'black';
+                arrOfGlow[colorIdx].style.visibility = 'hidden';
                 audio[colorIdx].pause();
                 audio[colorIdx].currentTime = 0;
                 board.classList.toggle('unclickable');
@@ -159,9 +163,11 @@ function playSequence(sequence) {
                 setTimeout(() => {
                     arrOfColors[colorIdx].style.borderColor = 'white';
                     audio[colorIdx].play();
+                    arrOfGlow[colorIdx].style.visibility = 'visible';
                 }, (index + 1) * timeoutTime);
                 setTimeout(() => {
                     arrOfColors[colorIdx].style.borderColor = 'black';
+                    arrOfGlow[colorIdx].style.visibility = 'hidden';
                     audio[colorIdx].pause();
                     audio[colorIdx].currentTime = 0;
                 }, (index + 1.50) * timeoutTime);
@@ -209,24 +215,43 @@ function introStartSequence() {
     arrOfColors.forEach((color, idx) => {
         setTimeout(() => {
             color.style.borderColor = 'white';
+            // glowColorOn(idx);
         }, idx * 1000)
         setTimeout(() => {
             color.style.borderColor = 'black';
+            // glowColorOff(idx);
+        }, (idx + .75) * 1000);
+    }
+    );
+    arrOfGlow.forEach((color, idx) => {
+        setTimeout(() => {
+            arrOfGlow[idx].style.visibility = 'visible';
+        }, idx * 1000)
+        setTimeout(() => {
+            arrOfGlow[idx].style.visibility = 'hidden';
         }, (idx + .75) * 1000);
     }
     );
 
     setTimeout(() => {
         arrOfColors[0].style.borderColor = 'white';
+        arrOfGlow[0].style.visibility = 'visible';
         arrOfColors[1].style.borderColor = 'white';
+        arrOfGlow[1].style.visibility = 'visible';
         arrOfColors[3].style.borderColor = 'white';
+        arrOfGlow[3].style.visibility = 'visible';
         arrOfColors[2].style.borderColor = 'white';
+        arrOfGlow[2].style.visibility = 'visible';
     }, 4400);
     setTimeout(() => {
         arrOfColors[0].style.borderColor = 'black';
+        arrOfGlow[0].style.visibility = 'hidden';
         arrOfColors[1].style.borderColor = 'black';
+        arrOfGlow[1].style.visibility = 'hidden';
         arrOfColors[3].style.borderColor = 'black';
+        arrOfGlow[3].style.visibility = 'hidden';
         arrOfColors[2].style.borderColor = 'black';
+        arrOfGlow[2].style.visibility = 'hidden';
     }, 5000);
 
 
