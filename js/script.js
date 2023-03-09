@@ -32,8 +32,8 @@ const arrOfGlow = Array.from(glow);
 const muteButton = document.getElementById('mute');
 
 /*----- event listeners -----*/
-playArea.addEventListener('click touchend', handleClick);
-muteButton.addEventListener('click touchend', handleMute);
+playArea.addEventListener('click', handleClick);
+muteButton.addEventListener('click', handleMute);
 
 /*----- functions -----*/
 // HANDLE MUTE
@@ -131,7 +131,7 @@ function handleColorSelection(colorClicked) {
                 audio[colorIdx].pause();
                 audio[colorIdx].currentTime = 0;
                 board.classList.toggle('unclickable');
-            }, 400);
+            }, 350);
         }
     });
 }
