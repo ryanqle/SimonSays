@@ -1,6 +1,8 @@
 <div align="center">
 
 
+<img src="imgs/Colors.png"  width="30%" height="15%">
+
 # WELCOME TO SIMON SAYS
 ### Built by: **[Ryan Q Le](https://www.linkedin.com/in/ryanqle/)**
 
@@ -18,13 +20,14 @@
 
 
 ## What is Simon Says
-___
+
 Simon Says is a short-term memory skill game. There are four buttons that produce their own color and sound. A round consist of repeating the computer's random sequence in the correct order. As the game progresses, so does the difficulty.
 
 
+<br />
 
 ## How to Play
-___
+
 1. Press the `START` button.
 2. The `COMPUTER` will play the color sequence.
 3. On `PLAYER` turn, choose the colors in the correct sequence.
@@ -32,28 +35,36 @@ ___
 5. `PLAYER` will lose once the inputted sequence is not correct
 6. To play again, hit the `RESTART` button.
 
+<br />
+<div align="center">
+
+![Gif](https://media.giphy.com/media/qe1fhplnKUhz5u3667/giphy.gif)
+</div>
+<br />
+
 ## Features Added
-___
+
 
 | Features |  |
 | --- | --- |
 | Introduction | Animation and muusic for when game is started |
 | Audio | Buttons will play a note for the seeing impaired |
-| Mute Button | Allows users to mute all audio from the game |
+| `Mute` Button | Allows users to mute all audio from the game |
 
 ## Planned Updates & Known Bugs
-___
-| Updates ||||| Bugs |
-| :---: | --- | --- | --- | --- | :---: |
-| Add Settings Menu ||||| Audio sound on mobile is inconsistent |
-| Color Blind Option ||||||
 
-<div align="center">
+Please feel free to reach out and send issue tickets about suggestions and bugs!
 
-___
+<br />
+
+| Updates | Bugs |
+| :---:  | :---: |
+| Add Settings Menu | Audio sound on mobile is inconsistent |
+| Color Blind Option |
+<br />
 
 ## Technologies Used
-___
+
 
 
 ![HMTL5](https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white)
@@ -64,5 +75,4 @@ ___
 ![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
 ![Visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 
-</div>
 
