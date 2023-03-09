@@ -41,9 +41,10 @@ h1 {
 
 h2 {
     margin-block-start: 6vh;
-    margin-block-end: 2vh;
     color: white;
-    font-size: 7vmin;
+    font-size: 5vmin;
+    margin-block-end: 2vh;
+    max-width: 100%;
     text-shadow:
         0.05em 0 black,
         0 0.05em black,
@@ -163,7 +164,6 @@ h2 {
     margin-top: -3vmin;
     box-shadow: 5vmin 5vmin 5vmin blue;
 }
-
 
 button {
     margin-block-start: 2vh;
