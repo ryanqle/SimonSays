@@ -5,7 +5,6 @@
 
 body {
     height: 100vh;
-    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,8 +45,16 @@ h2 {
     margin: 1vmin;
     border: 2vmin solid black;
 }
+.glow{
+    margin: 1vmin;
+    visibility: hidden;
+    pointer-events: none;
+}
+
 
 #r {
+    grid-column: 2;
+    grid-row: 1;
     margin-left: .5vmin;
     margin-bottom: .5vmin;
     background-color: red;
@@ -55,7 +62,19 @@ h2 {
     border-top-right-radius: 50%;
 }
 
+#glowR{
+    grid-column: 2;
+    grid-row: 1;
+    z-index: -1;
+    border-top-right-radius: 50%;
+    margin-bottom: -3vmin;
+    margin-left: -3vmin;
+    box-shadow: 5vmin -5vmin 5vmin red;
+}
+
 #y {
+    grid-column: 1;
+    grid-row: 1;
     margin-right: .5vmin;
     margin-bottom: .5vmin;
     background-color: yellow;
@@ -63,7 +82,19 @@ h2 {
     border-top-left-radius: 50%;
 }
 
+#glowY {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: -1;
+    border-top-left-radius: 50%;
+    margin-right: -3vmin;
+    margin-bottom: -3vmin;
+    box-shadow: -5vmin -5vmin 5vmin yellow;
+}
+
 #g {
+    grid-column: 1;
+    grid-row: 2;
     margin-right: .5vmin;
     margin-top: .5vmin;
     background-color: green;
@@ -71,13 +102,37 @@ h2 {
     border-bottom-left-radius: 50%;
 }
 
+#glowG {
+    grid-column: 1;
+    grid-row: 2;
+    z-index: -1;
+    border-bottom-left-radius: 50%;
+    margin-right: -3vmin;
+    margin-top: -3vmin;
+    box-shadow: -5vmin 5vmin 5vmin green;
+}
+
+
 #b {
+    grid-column: 2;
+    grid-row: 2;
     margin-left: .5vmin;
     margin-top: .5vmin;
     background-color: blue;
     background-size: contain;
     border-bottom-right-radius: 50%;
 }
+
+#glowB {
+    grid-column: 2;
+    grid-row: 2;
+    z-index: -1;
+    border-bottom-right-radius: 50%;
+    margin-left: -3vmin;
+    margin-top: -3vmin;
+    box-shadow: 5vmin 5vmin 5vmin blue;
+}
+
 
 button {
     margin-block-start: 2vh;
