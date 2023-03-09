@@ -17,6 +17,7 @@ let round = 0;
 let index = 0;
 let increaseDifficulty = false;
 let timeoutTime = 1000;
+let mute = false;
 
 /*----- cached element references -----*/
 const btn = document.getElementById('play');
@@ -28,11 +29,37 @@ const roundDisplay = document.querySelector('h1');
 const infoDisplay = document.querySelector('h2');
 const glow = document.querySelectorAll('.glow');
 const arrOfGlow = Array.from(glow);
+const muteButton = document.getElementById('mute');
 
 /*----- event listeners -----*/
 playArea.addEventListener('click', handleClick);
+muteButton.addEventListener('click', handleMute);
 
 /*----- functions -----*/
+// HANDLE MUTE
+// set all audio to muted or unmuted
+// update style of button to visually see
+function handleMute(){
+    if(mute === false){
+        mute = true;
+        muteButton.innerText = 'MUTED';
+        muteButton.style.color = 'red';
+        introMusic.muted = true;
+        gameOverSound.muted = true;
+        audio.forEach((sound) => {
+            sound.muted=true;
+        })
+    } else {
+        mute = false;
+        muteButton.innerText = 'MUTE';
+        muteButton.style.color = 'white'
+        introMusic.muted = false;
+        gameOverSound.muted = false;
+        audio.forEach((sound) => {
+            sound.muted=false;
+        })
+    }
+}
 function handleClick(evt) {
     let playerAction = evt.target;
     // HANDLE GUARD
@@ -209,17 +236,15 @@ function checkDifficulty() {
     }
 }
 // INTRO SEQUENCE
-// plays intro music and add 
+// plays intro music and add animation
 function introStartSequence() {
     introMusic.play();
     arrOfColors.forEach((color, idx) => {
         setTimeout(() => {
             color.style.borderColor = 'white';
-            // glowColorOn(idx);
         }, idx * 1000)
         setTimeout(() => {
             color.style.borderColor = 'black';
-            // glowColorOff(idx);
         }, (idx + .75) * 1000);
     }
     );

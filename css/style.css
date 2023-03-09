@@ -11,6 +11,13 @@ body {
     align-items: center;
     background: radial-gradient(gray,black);
     margin: auto;
+    position: relative;
+}
+#mute {
+    position: absolute;
+    top: 1vmin;
+    right: 1vmin;
+
 }
 
 h1{
