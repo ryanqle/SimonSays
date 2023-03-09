@@ -9,10 +9,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(gray,black);
+    background: radial-gradient(gray, black);
     margin: auto;
     position: relative;
 }
+
 #mute {
     position: absolute;
     top: 1vmin;
@@ -20,17 +21,38 @@ body {
 
 }
 
-h1{
+/* Text shadow
+courtesy of Stack Overflow
+https://stackoverflow.com/questions/13426875/text-border-using-css-border-around-text */
+h1 {
     margin-block-end: 6vh;
     color: white;
-    font-size: 5vmin;
+    font-size: 10vmin;
+    text-shadow:
+        0.05em 0 black,
+        0 0.05em black,
+        -0.05em 0 black,
+        0 -0.05em black,
+        -0.05em -0.05em black,
+        -0.05em 0.05em black,
+        0.05em -0.05em black,
+        0.05em 0.05em black;
 }
 
 h2 {
     margin-block-start: 6vh;
     margin-block-end: 2vh;
     color: white;
-    font-size: 5vmin;
+    font-size: 10vmin;
+    text-shadow:
+        0.05em 0 black,
+        0 0.05em black,
+        -0.05em 0 black,
+        0 -0.05em black,
+        -0.05em -0.05em black,
+        -0.05em 0.05em black,
+        0.05em -0.05em black,
+        0.05em 0.05em black;
 }
 
 #play-area {
@@ -53,7 +75,8 @@ h2 {
     margin: 1vmin;
     border: 2vmin solid black;
 }
-.glow{
+
+.glow {
     margin: 1vmin;
     visibility: hidden;
     pointer-events: none;
@@ -70,7 +93,7 @@ h2 {
     border-top-right-radius: 50%;
 }
 
-#glowR{
+#glowR {
     grid-column: 2;
     grid-row: 1;
     z-index: -1;
