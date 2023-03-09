@@ -14,13 +14,13 @@ body {
 }
 
 h1{
-    margin-block-end: 2vh;
+    margin-block-end: 6vh;
     color: white;
     font-size: 5vmin;
 }
 
 h2 {
-    margin-block-start: 2vh;
+    margin-block-start: 6vh;
     margin-block-end: 2vh;
     color: white;
     font-size: 5vmin;
