@@ -13,11 +13,7 @@
 ![Follows](https://img.shields.io/github/followers/ryanqle.svg?style=social&label=Follow&maxAge=2592000)
 
 ## **[CLICK HERE TO PLAY](https://ryanqle.github.io/SimonSays/)**
-
-
 </div>
-
-
 
 ## What is Simon Says
 
@@ -42,18 +38,19 @@ Simon Says is a short-term memory skill game. There are four buttons that produc
 </div>
 <br />
 
-## Features Added
+### Features Added
 
 
 | Features |  |
 | --- | --- |
-| Introduction | Animation and muusic for when game is started |
+| Introduction | Animation and music for when game is started |
+| Guard | Player will be unable to interact with the buttons during the computer's turn |
 | Audio | Buttons will play a note for the seeing impaired |
 | `Mute` Button | Allows users to mute all audio from the game |
 
-## Planned Updates & Known Bugs
+### Planned Updates & Known Bugs
 
-Please feel free to reach out and send issue tickets about suggestions and bugs!
+Please feel free to reach out and send issues about suggestions or bugs!
 
 <br />
 
@@ -61,12 +58,18 @@ Please feel free to reach out and send issue tickets about suggestions and bugs!
 | :---:  | :---: |
 | Add Settings Menu | Audio sound on mobile is inconsistent |
 | Color Blind Option |
+| Additional Difficulty Settings |
+| High Score Tracker |
 <br />
 
-## Technologies Used
+### About This Project
+Written for **General Assembly Software Engineering Immersive Bootcamp**
 
+The thought process behind this game is to emulate the Hasbro Simon Game. It has the game pad and reactive, light up buttons with sound.
 
+This is my first project utilizing JS and manipulating the DOM. One challenging aspect was having the glow effect added to the game pad without clipping other elements.
 
+### Technologies Used
 ![HMTL5](https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
