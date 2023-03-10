@@ -8,7 +8,7 @@ gameOverSound.volume = .2;
 const textDisplay = {
     difficulty: [`Let's make it MORE interesting!`, `Don't get cocky now!`, `FASTER!`],
     cheer: [`Awesome!`, `Nice!`, `Sweet!`, `Respect!`, `SLAAAAAAAY!`]
-}
+};
 
 /*----- app's state (variables) -----*/
 let cSequence = [];
@@ -101,7 +101,7 @@ function handleButton(btn) {
 // If all sequence is correct, call next round
 // On click display animation and sound
 function handleColorSelection(colorClicked) {
-    pSequence.push(colorClicked)
+    pSequence.push(colorClicked);
     let index = pSequence.length - 1;
     if (pSequence[index] !== cSequence[index]) {
         infoDisplay.innerText = 'GAME OVER';
@@ -239,7 +239,7 @@ function introStartSequence() {
     arrOfColors.forEach((color, idx) => {
         setTimeout(() => {
             color.style.borderColor = 'white';
-        }, idx * 1000)
+        }, idx * 1000);
         setTimeout(() => {
             color.style.borderColor = 'black';
         }, (idx + .75) * 1000);
@@ -247,7 +247,7 @@ function introStartSequence() {
     arrOfGlow.forEach((color, idx) => {
         setTimeout(() => {
             arrOfGlow[idx].style.visibility = 'visible';
-        }, idx * 1000)
+        }, idx * 1000);
         setTimeout(() => {
             arrOfGlow[idx].style.visibility = 'hidden';
         }, (idx + .75) * 1000);
