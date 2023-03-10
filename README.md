@@ -74,9 +74,37 @@ Please feel free to reach out and send issues about suggestions or bugs!
 ### About This Project
 Written for **General Assembly Software Engineering Immersive Bootcamp**
 
-The thought process behind this game is to emulate the Hasbro Simon Game. It has the game pad and reactive, light up buttons with sound.
+The thought process behind this game is to emulate the Hasbro Simon Game. It has the game pad and reactive buttons that light up with sound.
 
 This is my first project utilizing JS and manipulating the DOM. One challenging aspect was having the glow effect added to the game pad without clipping other elements.
 
+Favorite snippet of code: A while loop to iterate through the computer's sequence.
 
+```JS
+function playSequence(sequence) {
+    infoDisplay.innerText = `Wait for computer to play`;
+    while (index !== sequence.length) {
+        arrOfColors.forEach((color) => {
+            if (sequence[index] === color.id) {
+                let colorIdx = arrOfColors.indexOf(color);
+                setTimeout(() => {
+                    arrOfColors[colorIdx].style.borderColor = 'white';
+                    audio[colorIdx].play();
+                    arrOfGlow[colorIdx].style.visibility = 'visible';
+                }, (index + 1) * timeoutTime);
+                setTimeout(() => {
+                    arrOfColors[colorIdx].style.borderColor = 'black';
+                    arrOfGlow[colorIdx].style.visibility = 'hidden';
+                    audio[colorIdx].pause();
+                    audio[colorIdx].currentTime = 0;
+                }, (index + 1.75) * timeoutTime);
+                clearTimeout();
+            }
+        });
+        index++;
+    }
+    index = 0;
+    playerTurn();
+}
+```
 
