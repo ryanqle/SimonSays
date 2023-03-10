@@ -47,7 +47,7 @@ Simon Says is a short-term memory skill game. There are four buttons that produc
 </div>
 <br />
 
-### Features Added
+## Features Added
 
 
 | Features |  |
@@ -57,7 +57,7 @@ Simon Says is a short-term memory skill game. There are four buttons that produc
 | Audio | Buttons will play a note for the seeing impaired |
 | `Mute` Button | Allows users to mute all audio from the game |
 
-### Planned Updates & Known Bugs
+## Planned Updates & Known Bugs
 
 Please feel free to reach out and send issues about suggestions or bugs!
 
