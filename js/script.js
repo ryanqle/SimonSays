@@ -243,8 +243,7 @@ function introStartSequence() {
         setTimeout(() => {
             color.style.borderColor = 'black';
         }, (idx + .75) * 1000);
-    }
-    );
+    });
     arrOfGlow.forEach((color, idx) => {
         setTimeout(() => {
             arrOfGlow[idx].style.visibility = 'visible';
@@ -252,8 +251,7 @@ function introStartSequence() {
         setTimeout(() => {
             arrOfGlow[idx].style.visibility = 'hidden';
         }, (idx + .75) * 1000);
-    }
-    );
+    });
     setTimeout(() => {
         arrOfColors[0].style.borderColor = 'white';
         arrOfGlow[0].style.visibility = 'visible';
