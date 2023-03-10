@@ -78,7 +78,9 @@ The thought process behind this game is to emulate the Hasbro Simon Game. It has
 
 This is my first project utilizing JS and manipulating the DOM. One challenging aspect was having the glow effect added to the game pad without clipping other elements.
 
-Favorite snippet of code: A while loop to iterate through the computer's sequence.
+#### Favorite Snippets of Code
+
+ A while loop to iterate through the computer's sequence. Using setTimeout for the on and off while dynamically changing the timeout of sequence.
 
 ```JS
 function playSequence(sequence) {
@@ -107,4 +109,26 @@ function playSequence(sequence) {
     playerTurn();
 }
 ```
+CSS of buttons with grid layout overlapping each other but using z-index to push glow effect to behind the player board.
 
+```CSS
+#y {
+    grid-column: 1;
+    grid-row: 1;
+    margin-right: .5vmin;
+    margin-bottom: .5vmin;
+    background-color: yellow;
+    background-size: contain;
+    border-top-left-radius: 50%;
+}
+
+#glowY {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: -1;
+    border-top-left-radius: 50%;
+    margin-right: -3vmin;
+    margin-bottom: -3vmin;
+    box-shadow: -5vmin -5vmin 5vmin yellow;
+}
+```
